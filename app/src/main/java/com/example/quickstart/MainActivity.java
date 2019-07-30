@@ -353,16 +353,17 @@ public class MainActivity extends Activity
          */
         private List<String> getDataFromApi() throws IOException {
             String spreadsheetId = "1rgEk4QNzm0l5ZiOlpBJtAV9n2eHPmOiAQoEzgxkoCo8";
-            String range = "Live Sheet!A3:E9";
+            String range = "Live Sheet!A3:I19";
             List<String> results = new ArrayList<String>();
             ValueRange response = this.mService.spreadsheets().values()
                     .get(spreadsheetId, range)
                     .execute();
             List<List<Object>> values = response.getValues();
             if (values != null) {
-                results.add("Name, Major");
+                results.add("Availability, Make, Model, Colour, Km");
                 for (List row : values) {
-                    results.add(row.get(0) + ", " + row.get(4));
+                    results.add(row.get(0) + ", " + row.get(2) + ", " + row.get(3)
+                            + ", " + row.get(7) + ", " + row.get(8));
                 }
             }
             return results;
