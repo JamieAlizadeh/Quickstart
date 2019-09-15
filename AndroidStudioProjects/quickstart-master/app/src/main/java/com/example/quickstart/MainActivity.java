@@ -154,7 +154,12 @@ public class MainActivity extends Activity
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("Calling Google Sheets API ...");
 
-        setContentView(activityLayout);
+        //setContentView(activityLayout);
+
+        Intent intent = new Intent(this, activity2.class);
+        startActivity(intent);
+        //listview lv = new listview ( );
+        //lv.onCreate(null);
 
         // Initialize credentials and service object.
         mCredential = GoogleAccountCredential.usingOAuth2(
